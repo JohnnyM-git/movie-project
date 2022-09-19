@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./index.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/97f14c5a1b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="welcome">
+    <nav>
+      <div class="nav__container">
+        <div class="nav__row">
+          <figure class="logo">
+            <img
+              class="nav__logo--img"
+              src="./assets/movie-svgrepo-com.svg"
+              alt=""
+            />
+          </figure>
+        </div>
+      </div>
+    </nav>
+    <section class="search">
+      <div class="contain">
+        <div class="row">
+          <div class="input">
+            <input
+              class="input__search"
+              name="search__box"
+              type="text"
+              placeholder="Search Movie Title"
+              onchange="onSearchChange(event)"
+            />
+            <i class="fa-solid fa-magnifying-glass fa__search click"></i>
+          </div>
+          <div class="search__results">
+            <h3>Results for: <span class="movie__title"></span></h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="movies__wrapper">
+            <div class="movie">
+              <figure class="movie__img--wrapper">
+                <img class="movie__img" src="" alt="" />
+              </figure>
+              <div class="movie__description">
+
+                  <h3 class="movie__title"></h3>
+                  <h4 class="year"></h4>
+                  <a href="https://imdb.com/title/${movie.imdbID}" class="imdb" target="_blank">IMDB</a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
