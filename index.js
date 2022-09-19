@@ -9,12 +9,12 @@ async function renderMovies(movie) {
   const searchResultEl = document.querySelector(".movie__title")
 
   console.log(movie);
-
+    let result = movie.toUpperCase()
   if (movie.value === "") {
     console.log("error");
   }
   try {
-    searchResultEl.innerHTML = movie
+    searchResultEl.innerHTML = result
     const firstSix = moviesData.Search.filter((elem) => elem).slice(0, 6);
     moviesWrapperEl.innerHTML = firstSix
       .map((movie) => movieHTML(movie))
