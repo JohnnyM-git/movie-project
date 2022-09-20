@@ -2,7 +2,7 @@
 const moviesWrapperEl = document.querySelector(".movies__wrapper");
 let searchResultEl = document.querySelector(".movie__title")
 const errorResultEl = document.querySelector(".error__search")
-let filter = ''
+// let filter = ''
 
 
 async function renderMovies(movie) {
@@ -14,35 +14,33 @@ async function renderMovies(movie) {
     
     
     
-     try {
+    try {
     searchResultEl.innerHTML = result
     const firstSix =  moviesData.Search.filter((elem) => elem).slice(0, 6);
-    let moviesHTML = firstSix
-    .map((movie) => movieHTML(movie))
-    .join("");
+    let moviesHTML = firstSix.map((movie) => movieHTML(movie)).join("");
+    // console.log(firstSix)
+    moviesWrapperEl.innerHTML = moviesHTML
+    // console.log(moviesHTML)
 
-    
+    // if (filter !==){
+    //     errorResultEl.innerHTML = `"${result}"`
+    //         document.body.classList += " error"
+
+    // }
 
     if (filter === "YEAR") {
         console.log(filter)
      let test = firstSix.sort((a, b) => (a.Year) - (b.Year));
      let byYear = test.map((movieYear) => movieHTML(movieYear)).join("");
-     console.log(test)
+     console.log(byYear)
      moviesWrapperEl.innerHTML = byYear 
     }
-    else if(filter === "A_Z"){
-        console.log(filter)
-        // let test = firstSix.sort((a, b) => (a.Title) - (b.title));
-        let test = firstSix.sort((a, b) => a.Title.localeCompare(b.Title))
-     let byAz = test.map((movieAz) => movieHTML(movieAz)).join("");
-     console.log(test)
-     moviesWrapperEl.innerHTML = byAz 
-    }
-    else{
-        document.body.classList.remove("welcome", "search", "error");
-        document.body.classList += " search"
-        moviesWrapperEl.innerHTML = moviesHTML 
-    }
+    // else{
+
+    //     document.body.classList.remove("welcome", "search", "error");
+    //     document.body.classList += " search"
+    //     moviesWrapperEl.innerHTML = moviesHTML 
+    // }
 } catch (error) {
       errorResultEl.innerHTML = `"${result}"`
     document.body.classList += " error"
