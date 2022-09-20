@@ -31,17 +31,20 @@ NAVIGATION
 */
 
 .logo {
-  width: 70px;
-  height: 70px;
+    width: 100%;
+    height: 100px;
   animation: animate-logo 800ms 200ms backwards;
   filter: invert();
+}
+.nav__logo--img{
+    width: 100%;
+    height: 100%;
 }
 .nav__container {
   padding: 12px 0;
 }
 .nav__row {
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -192,3 +195,97 @@ MOVIES
   max-width: 100px;
   text-align: center;
 }
+
+
+/* 
+
+ERROR STATE
+
+*/
+
+.error .error__container {
+    opacity: 1;
+    transition: all 450ms;
+}
+
+.error__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 50vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(199, 37, 37);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    opacity: 0;
+
+
+}
+
+.error__btn{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    max-width: 100px;
+    font-size: 24px;
+    border: none;
+    border-radius: 20px;
+    background-color: #242424;
+    color: white;
+}
+
+.error__title{
+    font-size: 72px;
+    margin-bottom: 72px;
+}
+
+.error__description{
+    margin-top: 24px;
+    width: 100%;
+    max-width: 600px;
+    font-size: 32px;
+}
+.fa-times{
+    font-size: 40px;
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+
+.error #movies{
+    display: none;
+}
+
+
+
+/* 
+
+FOOTER
+
+*/
+
+.footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer__img{
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.welcome .footer{
+    position: absolute;
+    bottom: 0;
+}
+

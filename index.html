@@ -26,8 +26,8 @@
         </div>
       </div>
     </nav>
-    <section class="search">
-      <div class="contain">
+    <section id="search">
+      <div class="container">
         <div class="row">
           <div class="input">
             <input
@@ -40,29 +40,62 @@
             <i class="fa-solid fa-magnifying-glass fa__search click"></i>
           </div>
           <div class="search__results">
-            <h3 class="results">Results for: <span class="movie__title"></span></h3>
+            <h3 class="results">
+              Results for: <span class="movie__title"></span>
+            </h3>
           </div>
         </div>
       </div>
     </section>
-    <section>
+    <section id="movies">
       <div class="container">
         <div class="row">
+            <select id="filter" onchange="filterSort(event)">
+                <option value="" disabled selected>Sort</option>
+                <option value="YEAR">Year</option>
+                <option value="A_Z">A - Z</option>
+              </select>
           <div class="movies__wrapper">
             <div class="movie">
               <figure class="movie__img--wrapper">
                 <img class="movie__img" src="" alt="" />
               </figure>
               <div class="movie__description">
-
-                  <h3 class="movie__title"></h3>
-                  <h4 class="year"></h4>
-                  <a href="https://imdb.com/title/${movie.imdbID}" class="imdb" target="_blank">IMDB</a>
-                </div>
+                <h3 class="movie__title"></h3>
+                <h4 class="year"></h4>
+                <a
+                  href="https://imdb.com/title/${movie.imdbID}"
+                  class="imdb"
+                  target="_blank"
+                  >IMDB</a
+                >
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <section class="error__state">
+      <div class="container">
+        <div class="row">
+          <div class="error__container">
+            <i class="fa-solid fa-times click" onclick="closeError()"></i>
+
+            <h2 class="error__title">Sorry</h2>
+            <h4 class="error__description">
+              Unfortunatly your search for
+              <span class="error__search"></span> returned no results please
+              update your search
+            </h4>
+            <button class="error__btn click" onclick="closeError()">OK</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+          <figure class="footer__img">
+            <img src="./assets/movie-banner.png" alt="" />
+          </figure>
+    </footer>
   </body>
 </html>

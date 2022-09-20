@@ -1,34 +1,43 @@
 //https://www.omdbapi.com/?apikey=364842e4&s=fast
+const moviesWrapperEl = document.querySelector(".movies__wrapper");
+let searchResultEl = document.querySelector(".movie__title")
+const errorResultEl = document.querySelector(".error__search")
+let movie = ''
+let filter = ''
+
 
 async function renderMovies(movie) {
-  const movies = await fetch(
-    `https://www.omdbapi.com/?apikey=364842e4&s=${movie}`
-  );
-  const moviesData = await movies.json();
-  const moviesWrapperEl = document.querySelector(".movies__wrapper");
-  const searchResultEl = document.querySelector(".movie__title")
-
-  console.log(movie);
+    const movies = await fetch(`https://www.omdbapi.com/?apikey=364842e4&s=${movie}`);
+    
+    const moviesData = await movies.json();
     let result = movie.toUpperCase()
-  if (movie.value === "") {
-    console.log("error");
-  }
-  try {
+    
+    
+    
+    
+    try {
     searchResultEl.innerHTML = result
-    const firstSix = moviesData.Search.filter((elem) => elem).slice(0, 6);
-    moviesWrapperEl.innerHTML = firstSix
-      .map((movie) => movieHTML(movie))
-      .join("");
-    document.body.classList.remove("welcome", "search");
+    const firstSix =  moviesData.Search.filter((elem) => elem).slice(0, 6);
+    let moviesHTML = firstSix
+    .map((movie) => movieHTML(movie))
+    .join("");
+    // if (filter === "YEAR") {
+    //     console.log(filter)
+    //  let test = moviesHTML.sort((a, b) => (a.Year) - (b.Year)).join("");
+    //  console.log(test)
+    // }
+    document.body.classList.remove("welcome", "search", "error");
     document.body.classList += " search"
-  } catch (error) {
-    alert("movie not found");
+    moviesWrapperEl.innerHTML = moviesHTML
+} catch (error) {
+      errorResultEl.innerHTML = `"${result}"`
+    document.body.classList += " error"
   }
 }
 
 function movieHTML(movie) {
   return `<div class="movie">
-  <figure class="movie__img--wrapper">
+  <figure class="movie__img--wrapper click">
   <img class="movie__img" src="${movie.Poster}" alt="" />
   </figure>
   <div class="movie__description">
@@ -40,12 +49,19 @@ function movieHTML(movie) {
 </div>`;
 }
 function onSearchChange(event) {
-  let movie = event.target.value;
-//   setTimeout(() => {
+  movie = event.target.value;
+  console.log(event.target.value)
     renderMovies(movie);
-//   }, "3000");
+}
+
+function closeError(){
+    location.reload()
 }
 
 
-
-
+function filterSort (event) {
+    renderMovies(movie)
+    filter = event.target.value
+    // console.log(event.target.value)
+}
+// filter()
