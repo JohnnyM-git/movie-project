@@ -52,7 +52,7 @@ async function renderMovies(movie) {
 
 function movieHTML(movie) {
   return `<div class="movie">
-  <figure class="movie__img--wrapper click">
+  <figure class="movie__img--wrapper click no__cursor" onclick="notClickable()">
   <img class="movie__img" src="${movie.Poster}" alt="" />
   </figure>
   <div class="movie__description">
@@ -79,4 +79,16 @@ function filterSort (event) {
     filter = event.target.value
     // console.log(event.target.value)
 }
-// filter()
+
+function notClickable() {
+  console.log('testing not available')
+  alert ("this feature has not been implemented")
+  // try {
+    
+  // } catch (error) {
+    
+  // }
+  // finally{
+    
+  // }
+}

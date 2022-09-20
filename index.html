@@ -19,7 +19,7 @@
           <figure class="logo">
             <img
               class="nav__logo--img"
-              src="./assets/movie-svgrepo-com.svg"
+              src="./assets/logo.svg"
               alt=""
             />
           </figure>
@@ -30,36 +30,41 @@
       <div class="container">
         <div class="row">
           <div class="input">
-            <input
+            <div class="search__area">
+
+              <input
               class="input__search"
               name="search__box"
               type="text"
               placeholder="Search Movie Title"
               onchange="onSearchChange(event)"
-            />
-            <i class="fa-solid fa-magnifying-glass fa__search click"></i>
+              />
+              <i class="fa-solid fa-magnifying-glass fa__search click"></i>
+            </div>
           </div>
-          <div class="search__results">
-            <h3 class="results">
-              Results for: <span class="movie__title"></span>
-            </h3>
-          </div>
+
+            <div class="search__results">
+              <h3 class="results">
+                Results for: <span class="movie__title"></span>
+              </h3>
+              <select class="sort__option id="filter" onchange="filterSort(event)">
+                <option value="Sort" disabled selected>Sort</option>
+                <option value="YEAR">Year</option>
+                <option value="A_Z">A - Z</option>
+                <option value="Clear_Filter">Clear Filter</option>
+              </select>
+            </div>
         </div>
       </div>
     </section>
     <section id="movies">
       <div class="container">
         <div class="row">
-            <select id="filter" onchange="filterSort(event)">
-                <option value="Sort" disabled selected>Sort</option>
-                <option value="YEAR">Year</option>
-                <option value="A_Z">A - Z</option>
-                <option value="Clear_Filter">Clear Filter</option>
-              </select>
+            
           <div class="movies__wrapper">
             <div class="movie">
-              <figure class="movie__img--wrapper">
-                <img class="movie__img" src="" alt="" />
+              <figure class="movie__img--wrapper" >
+                <img class="movie__img" src="" alt=""/>
               </figure>
               <div class="movie__description">
                 <h3 class="movie__title"></h3>
@@ -94,9 +99,14 @@
       </div>
     </section>
     <footer class="footer">
-          <figure class="footer__img">
-            <img src="./assets/movie-banner.png" alt="" />
-          </figure>
+      <figure class="footer__img--wrapper">
+        <img class="footer__img" src="./assets/logo.svg" alt="">
+      </figure>
+      <div class="footer__links">
+        <a class="footer__link link__hover--effect click no__cursor" href="#">Home</a>
+        <a class="footer__link link__hover--effect click no__cursor" href="#">about</a>
+        <a class="footer__link link__hover--effect click no__cursor" href="#">Contact</a>
+      </div>
     </footer>
   </body>
 </html>
