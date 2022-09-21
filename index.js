@@ -23,11 +23,18 @@ async function renderMovies(movie) {
 
     
 
-    if (filter === "YEAR") {
+    if (filter === "OLDEST") {
         console.log(filter)
-     let test = firstSix.sort((a, b) => (a.Year) - (b.Year));
-     let byYear = test.map((movieYear) => movieHTML(movieYear)).join("");
-     console.log(test)
+     let movieData = firstSix.sort((a, b) => (a.Year) - (b.Year));
+     let byYear = movieData.map((movieYear) => movieHTML(movieYear)).join("");
+     console.log(movieData)
+     moviesWrapperEl.innerHTML = byYear 
+    }
+    else if (filter === "NEWEST") {
+        console.log(filter)
+     let movieData = firstSix.sort((a, b) => (b.Year) - (a.Year));
+     let byYear = movieData.map((movieYear) => movieHTML(movieYear)).join("");
+     console.log(movieData)
      moviesWrapperEl.innerHTML = byYear 
     }
     else if(filter === "A_Z"){
